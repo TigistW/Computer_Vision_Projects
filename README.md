@@ -1,4 +1,4 @@
-# Computer_Vision_Projects# Image Processing Functions
+# Image Processing Functions
 
 This repository contains a collection of image processing functions implemented in Python using the PIL (Python Imaging Library) and OpenCV libraries. These functions enable various image transformations and enhancements.
 
@@ -50,4 +50,4 @@ This repository contains a collection of image processing functions implemented 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/image-processing-functions.git
+   git clone https://github.com/TigistW/Computer_Vision_Projects/image-processing-functions.git
