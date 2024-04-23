@@ -4,43 +4,51 @@ import cv2
 def apply_image_negative(file_path):
     image = Image.open(file_path)
     width, height = image.size
-    negative_image = Image.new(image.mode, (width, height))  # Create a new image with the same mode as the input image
+    
+    # Create a new image with the same mode as the input image
+    negative_image = Image.new(image.mode, (width, height))  
 
     for x in range(width):
         for y in range(height):
-            if image.mode == 'RGB':  # If the image is RGB
+            if image.mode == 'RGB':
                 r, g, b = image.getpixel((x, y))
-                negative_image.putpixel((x, y), (255 - r, 255 - g, 255 - b))  # Invert RGB channels
-            elif image.mode == 'L':  # If the image is grayscale
+                negative_image.putpixel((x, y), (255 - r, 255 - g, 255 - b))
+                
+            elif image.mode == 'L':
                 intensity = image.getpixel((x, y))
-                negative_intensity = 255 - intensity  # Invert grayscale intensity
+                negative_intensity = 255 - intensity
                 negative_image.putpixel((x, y), negative_intensity)
+                
             else:
-                raise ValueError("Unsupported image mode: {}".format(image.mode))  # Raise error for unsupported image modes
+                
+                raise ValueError("Unsupported image mode: {}".format(image.mode))
 
     return negative_image
 
 def apply_gamma_correction(file_path, gamma):
     image = Image.open(file_path)
     width, height = image.size
-    corrected_image = Image.new(image.mode, (width, height))  # Create a new image with the same mode as the input image
+    corrected_image = Image.new(image.mode, (width, height))
 
     for x in range(width):
         for y in range(height):
-            if image.mode == 'RGB':  # If the image is RGB
+            if image.mode == 'RGB': 
                 r, g, b = image.getpixel((x, y))
                 r_corrected = int(255 * (r / 255) ** gamma)
                 g_corrected = int(255 * (g / 255) ** gamma)
                 b_corrected = int(255 * (b / 255) ** gamma)
                 corrected_image.putpixel((x, y), (r_corrected, g_corrected, b_corrected))
-            elif image.mode == 'L':  # If the image is grayscale
+                
+            elif image.mode == 'L': 
                 intensity = image.getpixel((x, y))
                 intensity_corrected = int(255 * (intensity / 255) ** gamma)
                 corrected_image.putpixel((x, y), intensity_corrected)
             else:
-                raise ValueError("Unsupported image mode: {}".format(image.mode))  # Raise error for unsupported image modes
+                raise ValueError("Unsupported image mode: {}".format(image.mode))
+            
 
     return corrected_image
+
 def apply_logarithmic_transformation(file_path, c):
     image = Image.open(file_path)
     width, height = image.size
