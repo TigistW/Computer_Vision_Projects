@@ -58,6 +58,6 @@ This repository contains a collection of image processing functions implemented 
 
 Contributors:
 
-1. Tigist Wondimneh Birhan
-2. Yared Tsegaye Gizaw
-3. Yeabsra Driba Gurumu
+1. Tigist Wondimneh Birhan  UGR/2538/12
+2. Yared Tsegaye Gizaw     UGR/8284/12
+3. Yeabsra Driba Gurumu     UGR/4951/12
