@@ -51,3 +51,7 @@ This repository contains a collection of image processing functions implemented 
 1. Clone the repository:
    ```bash
    git clone https://github.com/TigistW/Computer_Vision_Projects/image-processing-functions.git
+2. Run the `main.py` file:
+   1. pip install gradio
+   2. Run the `main.py` file
+   3. See the interface in the browser and interact with the tool
