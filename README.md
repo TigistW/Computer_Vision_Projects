@@ -55,3 +55,9 @@ This repository contains a collection of image processing functions implemented 
    1. pip install gradio
    2. Run the `main.py` file
    3. See the interface in the browser and interact with the tool
+
+Contributors:
+
+1. Tigist Wondimneh Birhan
+2. Yared Tsegaye Gizaw
+3. Yeabsra Driba Gurumu
