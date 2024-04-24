@@ -1,6 +1,8 @@
 from PIL import Image
 import numpy as np
 import cv2
+import matplotlib.pyplot as plt
+import os
 def apply_image_negative(file_path):
     image = Image.open(file_path)
     width, height = image.size
@@ -29,7 +31,6 @@ def apply_gamma_correction(file_path, gamma):
     image = Image.open(file_path)
     width, height = image.size
     corrected_image = Image.new(image.mode, (width, height))
-
     for x in range(width):
         for y in range(height):
             if image.mode == 'RGB': 
@@ -46,7 +47,6 @@ def apply_gamma_correction(file_path, gamma):
             else:
                 raise ValueError("Unsupported image mode: {}".format(image.mode))
             
-
     return corrected_image
 
 def apply_logarithmic_transformation(file_path, c):
@@ -104,47 +104,63 @@ def apply_contrast_stretching(file_path):
 def apply_histogram_equalization(image_path):
     img = cv2.imread(image_path)
 
-    # Check if the image is in grayscale or RGBa format
-    if len(img.shape) == 2:  # Grayscale image
+    if len(img.shape) == 2:
         equalized_img = cv2.equalizeHist(img)
     elif len(img.shape) == 3 and img.shape[2] == 3:  # RGB image
-        # Convert RGB image to YUV color space
+
         yuv_img = cv2.cvtColor(img, cv2.COLOR_BGR2YUV)
-        
-        # Apply histogram equalization to the Y channel
         yuv_img[:,:,0] = cv2.equalizeHist(yuv_img[:,:,0])
-        
-        # Convert back to RGB color space
         equalized_img = cv2.cvtColor(yuv_img, cv2.COLOR_YUV2BGR)
     else:
         raise ValueError("Unsupported image format")
 
-    return equalized_img
+    hist_original = cv2.calcHist([img], [0], None, [256], [0, 256])
+    hist_equalized = cv2.calcHist([equalized_img], [0], None, [256], [0, 256])
 
+    # Plot histograms
+    plt.figure(figsize=(12, 6))
+    plt.plot(hist_original, color='b', label='Original Image Histogram')
+    plt.plot(hist_equalized, color='r', label='Equalized Image Histogram')
+    plt.legend()
+    plt.xlabel('Pixel Value')
+    plt.ylabel('Frequency')
+    plt.title('Histogram Comparison')
+    histogram_plot_path = os.path.join('histogram_plot.png')
+    plt.savefig(histogram_plot_path)
+    plt.close()
+    
+
+    return equalized_img, histogram_plot_path
+    
 def apply_intensity_level_slicing(image_path, low_threshold, high_threshold, fill_color=(255, 255, 255)):
-    # Read the image
+
     img = cv2.imread(image_path)
     if len(img.shape) == 2:
   
         mask = cv2.inRange(img, low_threshold, high_threshold)
         img_sliced = np.where(mask != 0, img, fill_color)
-    elif len(img.shape) == 3 and img.shape[2] == 3:  # RGB image
-        # Convert RGB image to HSV color space
+    elif len(img.shape) == 3 and img.shape[2] == 3:
+
         hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-        
-        # Apply intensity level slicing to the V channel
         mask = cv2.inRange(hsv_img[:,:,2], low_threshold, high_threshold)
         hsv_img[:,:,2] = np.where(mask != 0, hsv_img[:,:,2], fill_color[2])
-        
-        # Convert back to RGB color space
         img_sliced = cv2.cvtColor(hsv_img, cv2.COLOR_HSV2BGR)
     else:
         raise ValueError("Unsupported image format")
 
-    return img_sliced
+    plt.figure(figsize=(8, 8))
+    plt.imshow(mask, cmap='gray')
+    plt.title('Intensity Level Slicing Mask')
+    plt.axis('off')
+    mask_plot_path = os.path.join('mask_plot.png')
+    plt.savefig(mask_plot_path)
+    plt.close()
+
+
+    return img_sliced,mask_plot_path
 
 def apply_bit_plane_slicing(image_path, bit_plane):
-    # Read the image
+
     img = cv2.imread(image_path)
 
     if len(img.shape) == 2: 
@@ -159,5 +175,3 @@ def apply_bit_plane_slicing(image_path, bit_plane):
     bit_plane_img = bit_plane_img * 255
 
     return bit_plane_img
-
-

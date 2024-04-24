@@ -12,7 +12,7 @@ gradient_input_two = [
     ]
 gradient_input_three = [
     gr.Image(type="filepath"),
-    gr.Slider(minimum=0, maximum=254, step = 10, label="Intensity"),
+    gr.Slider(minimum=1, maximum=255, step = 10, label="Intensity"),
     ]
 gradient_input_four = [
     gr.Image(type="filepath"),
@@ -44,11 +44,15 @@ gradient_output_three = [
 gradient_output_four = [
      gr.Image(type="filepath")                
 ]
+
 gradient_output_five = [
-     gr.Image(type="filepath")                
+     gr.Image(type="filepath"), 
+     gr.Image(type="filepath")
+                     
 ]
 gradient_output_six = [
-     gr.Image(type="filepath")                
+     gr.Image(type="filepath"),
+     gr.Image(type="filepath")              
 ]
 gradient_output_seven = [
      gr.Image(type="filepath")                
@@ -61,11 +65,6 @@ image_negative = gr.Interface(
     outputs = gradient_output_one,  
     submit_btn = "Convert Image",
     title="Negative of an image",
-    # examples=
-    # [
-    #     ["Tge.jpg"],
-    #     ["Sosna.jpg",],    
-    # ]
     )
 
 gamma_correction = gr.Interface(
@@ -74,11 +73,7 @@ gamma_correction = gr.Interface(
     outputs = gradient_output_two, 
     submit_btn="Convert Image",
     title="Gamma correction of an image",
-    # examples=
-    # [
-    #     ["../Tge.jpg"],
-    #     ["../Sosna.jpg",],    
-    # ]
+  
     )
 
 logarithmic_transformation = gr.Interface(
@@ -87,11 +82,7 @@ logarithmic_transformation = gr.Interface(
     outputs = gradient_output_three, 
     submit_btn="Convert Image",
     title="Logarithmic transformation of an image",
-    # examples=
-    # [
-    #     ["../Tge.jpg"],
-    #     ["../Sosna.jpg",],    
-    # ]
+  
     )
 
 contrast_scketching= gr.Interface(
@@ -100,11 +91,7 @@ contrast_scketching= gr.Interface(
     outputs = gradient_output_four, 
     submit_btn="Convert Image",
     title="Contrast streching of an image",
-    # examples=
-    # [
-    #     ["../Tge.jpg"],
-    #     ["../Sosna.jpg",],    
-    # ]
+  
     )
 
 histogram_equalization= gr.Interface(
@@ -113,11 +100,7 @@ histogram_equalization= gr.Interface(
     outputs = gradient_output_five, 
     submit_btn="Convert Image",
     title="Histogram Equalization of an image",
-    # examples=
-    # [
-    #     ["../Tge.jpg"],
-    #     ["../Sosna.jpg",],    
-    # ]
+   
     )
 intensity_level_slicing = gr.Interface(
     fn = functions.apply_intensity_level_slicing,
@@ -125,11 +108,7 @@ intensity_level_slicing = gr.Interface(
     outputs = gradient_output_six, 
     submit_btn="Convert Image",
     title="Intensity level slicing of an image",
-    # examples=
-    # [
-    #     ["../Tge.jpg"],
-    #     ["../Sosna.jpg",],    
-    # ]
+   
     )
 
 bit_plane_slicing = gr.Interface(
@@ -138,11 +117,7 @@ bit_plane_slicing = gr.Interface(
     outputs = gradient_output_seven, 
     submit_btn="Convert Image",
     title="Bit Plane Slicing of an image",
-    # examples=
-    # [
-    #     ["../Tge.jpg"],
-    #     ["../Sosna.jpg",],    
-    # ]
+   
     )
 demo = gr.TabbedInterface([image_negative, gamma_correction, logarithmic_transformation, contrast_scketching, histogram_equalization,intensity_level_slicing,bit_plane_slicing], ["Image Negative", "Gamma Correction", "Logarithmic_transform", "Contrast Streching", "Histogram Equalization","Intensity Level Slicing", "Bit Plane Slicing"])
 
