@@ -82,7 +82,8 @@ image_negative = gr.Interface(
       ["https://i.ibb.co/WHBqsVF/naturergb.jpg"],
       ["https://i.ibb.co/WNCv6FV/rgbperson.jpg"],
       ["https://i.ibb.co/3SHG8rL/grayscalewomen.jpg"],
-     ["https://i.ibb.co/HTxH2nf/natuure.png"]
+     ["https://i.ibb.co/HTxH2nf/natuure.png"],
+      ["https://i.ibb.co/WsD0zJ6/photo-2024-04-24-23-19-48.jpg"]
         
     ]
 )
@@ -115,7 +116,8 @@ gamma_correction = gr.Interface(
       ["https://i.ibb.co/WHBqsVF/naturergb.jpg"],
       ["https://i.ibb.co/WNCv6FV/rgbperson.jpg"],
       ["https://i.ibb.co/3SHG8rL/grayscalewomen.jpg"],
-     ["https://i.ibb.co/HTxH2nf/natuure.png"]
+     ["https://i.ibb.co/HTxH2nf/natuure.png"],
+      ["https://i.ibb.co/WsD0zJ6/photo-2024-04-24-23-19-48.jpg"]
         
     ]
     )
@@ -156,7 +158,8 @@ logarithmic_transformation = gr.Interface(
       ["https://i.ibb.co/WHBqsVF/naturergb.jpg"],
       ["https://i.ibb.co/WNCv6FV/rgbperson.jpg"],
       ["https://i.ibb.co/3SHG8rL/grayscalewomen.jpg"],
-     ["https://i.ibb.co/HTxH2nf/natuure.png"]
+     ["https://i.ibb.co/HTxH2nf/natuure.png"],
+      ["https://i.ibb.co/WsD0zJ6/photo-2024-04-24-23-19-48.jpg"]
         
     ]
     )
@@ -192,7 +195,8 @@ contrast_scketching= gr.Interface(
       ["https://i.ibb.co/WHBqsVF/naturergb.jpg"],
       ["https://i.ibb.co/WNCv6FV/rgbperson.jpg"],
       ["https://i.ibb.co/3SHG8rL/grayscalewomen.jpg"],
-     ["https://i.ibb.co/HTxH2nf/natuure.png"]
+     ["https://i.ibb.co/HTxH2nf/natuure.png"],
+      ["https://i.ibb.co/WsD0zJ6/photo-2024-04-24-23-19-48.jpg"]
         
     ]
     )
@@ -229,7 +233,8 @@ histogram_equalization= gr.Interface(
       ["https://i.ibb.co/WHBqsVF/naturergb.jpg"],
       ["https://i.ibb.co/WNCv6FV/rgbperson.jpg"],
       ["https://i.ibb.co/3SHG8rL/grayscalewomen.jpg"],
-     ["https://i.ibb.co/HTxH2nf/natuure.png"]
+     ["https://i.ibb.co/HTxH2nf/natuure.png"],
+      ["https://i.ibb.co/WsD0zJ6/photo-2024-04-24-23-19-48.jpg"]
         
     ]
     )
@@ -265,7 +270,8 @@ intensity_level_slicing = gr.Interface(
       ["https://i.ibb.co/WHBqsVF/naturergb.jpg"],
       ["https://i.ibb.co/WNCv6FV/rgbperson.jpg"],
       ["https://i.ibb.co/3SHG8rL/grayscalewomen.jpg"],
-     ["https://i.ibb.co/HTxH2nf/natuure.png"]
+     ["https://i.ibb.co/HTxH2nf/natuure.png"],
+      ["https://i.ibb.co/WsD0zJ6/photo-2024-04-24-23-19-48.jpg"]
         
     ]
     )
@@ -300,7 +306,8 @@ bit_plane_slicing = gr.Interface(
       ["https://i.ibb.co/WHBqsVF/naturergb.jpg"],
       ["https://i.ibb.co/WNCv6FV/rgbperson.jpg"],
       ["https://i.ibb.co/3SHG8rL/grayscalewomen.jpg"],
-     ["https://i.ibb.co/HTxH2nf/natuure.png"]
+     ["https://i.ibb.co/HTxH2nf/natuure.png"],
+    ["https://i.ibb.co/WsD0zJ6/photo-2024-04-24-23-19-48.jpg"]
         
     ]
     )
